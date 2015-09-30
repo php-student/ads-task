@@ -1,3 +1,20 @@
+<?php
+session_start();
+if (empty($_SESSION['count'])) {
+    $_SESSION['count'] = 1;
+} else {
+    $_SESSION['count']++;
+    if($_SESSION['count']==4){
+        $_SESSION['count'] = 1;
+    }
+}
+if(!empty($_GET['ad_block'])){
+    if($_GET['ad_block']==1){
+        $ad_block='display:none';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +30,24 @@
 <div class="container">
     <br>
     <!-- Ads block begin -->
-    <div class="row">
-        <div class="alert alert-info"><a href="https://www.google.com" target="_blank">Лучший поисковик в мире!</a></div>
+    <?php
+    switch($_SESSION['count']){
+        case 1:
+            $p='Лучший поисковик в мире!';
+            $a='http://www.google.com';
+            break;
+        case 2:
+            $p='Лучший российский поисковик!';
+            $a='http://www.yandex.ru';
+            break;
+        case 3:
+            $p='А когда то я была лучшей!';
+            $a='http://www.opera.ru';
+            break;
+    }
+    ?>
+    <div class="row" style="<?=$ad_block?>">
+        <div class="alert alert-info"><a href="<?=$a?>" target="_blank"><?=$p?></a></div>
     </div>
     <!-- Ads block end -->
     <br>
