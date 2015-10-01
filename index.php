@@ -1,11 +1,8 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8');
 require(__DIR__ . '\data\func.php');
 $ads = require(__DIR__ . '\data\adsdb.php');
 $curads = setads();
 set_curr_ads($curads);
-echo $curads;
-print_r($ads);
 ?>
 <!DOCTYPE html>
 <html>
