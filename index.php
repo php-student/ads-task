@@ -1,9 +1,9 @@
 <?php
 require(__DIR__ . '\data\func.php');
-$adsdb = require(__DIR__ . '\data\adsdb.php');
+$ads = require(__DIR__ . '\data\adsdb.php');
 //$cities = require(__DIR__ . '/data/dbCity.php');
 $curads = setads();
-set_curr_ads($curads);
+set_curr_ads();
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@ set_curr_ads($curads);
     <br>
     <!-- Ads block begin -->
     <div class="row">
-        <div class="alert alert-info"><a href="<?=$adsdb[$curads]['ссылка - ']?>" target="_blank"><?=$adsdb[$curads]['- текст']?></a></div>
+        <div class="alert alert-info"><a href="<?=$ads[$curads]['ссылка - ']?>" target="_blank"><?=$ads[$curads]['- текст']?></a></div>
     </div>
     <!-- Ads block end -->
     <br>
