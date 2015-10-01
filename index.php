@@ -1,3 +1,10 @@
+<?php
+require(__DIR__ . '\data\func.php');
+$adsdb = require(__DIR__ . '\data\adsdb.php');
+//$cities = require(__DIR__ . '/data/dbCity.php');
+$curads = setads();
+set_curr_ads($curads);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +21,7 @@
     <br>
     <!-- Ads block begin -->
     <div class="row">
-        <div class="alert alert-info"><a href="https://www.google.com" target="_blank">Лучший поисковик в мире!</a></div>
+        <div class="alert alert-info"><a href="<?=$adsdb[$curads]['ссылка - ']?>" target="_blank"><?=$adsdb[$curads]['- текст']?></a></div>
     </div>
     <!-- Ads block end -->
     <br>
