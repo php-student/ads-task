@@ -1,9 +1,11 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 require(__DIR__ . '\data\func.php');
 $ads = require(__DIR__ . '\data\adsdb.php');
-//$cities = require(__DIR__ . '/data/dbCity.php');
 $curads = setads();
-set_curr_ads();
+set_curr_ads($curads);
+echo $curads;
+print_r($ads);
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +23,7 @@ set_curr_ads();
     <br>
     <!-- Ads block begin -->
     <div class="row">
-        <div class="alert alert-info"><a href="<?=$ads[$curads]['ссылка - ']?>" target="_blank"><?=$ads[$curads]['- текст']?></a></div>
+        <div class="alert alert-info"><a href="<?=$ads[$curads]['link']?>" target="_blank"><?=$ads[$curads]['txt']?></a></div>
     </div>
     <!-- Ads block end -->
     <br>

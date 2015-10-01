@@ -1,20 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LIS
- * Date: 30.09.2015
- * Time: 21:00
- */
 function setads()
 {
-    $curads = '';
-    if (!isset($_COOKIE['ads']) || $_COOKIE['ads'] == ' - реклама #3') {
-        $curads = " - реклама #1";
+//    $curads = '';
+    if($_GET['ad_block'] == 1){
+        $curads = false;
+    }
+    if (!isset($_COOKIE['curads']) || $_COOKIE['curads'] == 'ads3') {
+        $curads = "ads1";
     } else {
-        if ($_COOKIE['ads'] == ' - реклама #1') {
-            $curads = ' - реклама #2';
+        if ($_COOKIE['curads'] == 'ads1') {
+            $curads = 'ads2';
         } else {
-            $curads = ' - реклама #3';
+            $curads = 'ads3';
         }
     }
     return $curads;
